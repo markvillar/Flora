@@ -35,7 +35,7 @@ class HomeScreen: UIViewController {
         let location = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         location.isPagingEnabled = false
         location.translatesAutoresizingMaskIntoConstraints = false
-        location.backgroundColor = .white
+        location.backgroundColor = .systemBackground
         return location
     }()
     
@@ -86,7 +86,7 @@ extension HomeScreen {
     fileprivate func viewSetup() {
         navigationItem.title = "Home Tab"
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
     }
     
     fileprivate func scrollViewSetup() {

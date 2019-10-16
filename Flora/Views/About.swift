@@ -46,7 +46,7 @@ class About: UIViewController {
         setUpScrollView()
         setUpProfile()
         setupName()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
     }
     
     

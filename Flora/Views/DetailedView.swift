@@ -18,7 +18,7 @@ class DetailedView: UIViewController {
     let scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
-        scroll.backgroundColor = .white
+        scroll.backgroundColor = .systemBackground
         return scroll
     }()
     
@@ -36,7 +36,7 @@ class DetailedView: UIViewController {
         title.textAlignment = .center
         title.font = UIFont(name: "SanFranciscoText-Semibold", size: 30)
         title.text = "No Article"
-        title.backgroundColor = .white
+        title.backgroundColor = .systemBackground
         return title
     }()
     
@@ -47,7 +47,7 @@ class DetailedView: UIViewController {
         content.textAlignment = .natural
         content.font = UIFont(name: "Helvetica", size: 20)
         content.text = "No Content"
-        content.backgroundColor = .white
+        content.backgroundColor = .systemBackground
         return content
     }()
     
@@ -76,7 +76,7 @@ class DetailedView: UIViewController {
 extension DetailedView {
     
     fileprivate func viewSetup() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         self.articleTitle.text = previewArticle.displayTitle
         self.articleContent.text = previewArticle.displayText
