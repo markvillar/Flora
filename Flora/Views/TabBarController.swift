@@ -37,6 +37,12 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViewControllers()
+        setUpTabBar()
+    }
+    
+    fileprivate func setUpTabBar() {
+        tabBar.isTranslucent = true
+        tabBar.isOpaque = true
     }
     
     fileprivate func setUpViewControllers() {
