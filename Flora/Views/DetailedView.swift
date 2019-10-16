@@ -7,24 +7,11 @@
 //
 
 import UIKit
-import WebKit
 import WikipediaKit
 
-class DetailedView: UIViewController, WKUIDelegate {
+class DetailedView: UIViewController {
     
     //MARK: - Property declarations
-    
-    var webView: WKWebView = {
-        let webConfiguration = WKWebViewConfiguration()
-        let webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        webView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let myURL = URL(string:"https://www.apple.com")
-        let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
-        
-        return webView
-    }()
     
     var previewArticle: WikipediaArticlePreview
     
@@ -161,19 +148,7 @@ extension DetailedView {
         articleContent.topAnchor.constraint(equalTo: articleTitle.bottomAnchor).isActive = true
         articleContent.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
         articleContent.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        
-        webViewConstraints()
-    }
-    
-    fileprivate func webViewConstraints() {
-        scrollView.addSubview(webView)
-        
-        webView.topAnchor.constraint(equalTo: articleContent.bottomAnchor).isActive = true
-        webView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        webView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        webView.heightAnchor.constraint(equalTo: scrollView.heightAnchor).isActive = true
-        
-        webView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        articleContent.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
     }
     
 }
