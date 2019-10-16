@@ -48,6 +48,7 @@ class DetailedView: UIViewController, WKUIDelegate {
         title.translatesAutoresizingMaskIntoConstraints = false
         //title.adjustsFontSizeToFitWidth = true
         title.textAlignment = .center
+        title.numberOfLines = 0
         title.font = .systemFont(ofSize: 25, weight: .semibold)
         title.text = "No Article"
         title.backgroundColor = .systemBackground
