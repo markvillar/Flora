@@ -39,6 +39,7 @@ class DetailedView: UIViewController, WKUIDelegate {
         let header = UIImageView()
         header.translatesAutoresizingMaskIntoConstraints = false
         header.backgroundColor = .systemBackground
+        header.contentMode = .scaleAspectFill
         return header
     }()
     
