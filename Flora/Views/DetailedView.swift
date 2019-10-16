@@ -99,7 +99,12 @@ extension DetailedView {
             imageHeader.image = UIImage(named: "noimage")
         }
         
-        
+        navigationBarSetUp()
+    }
+    
+    fileprivate func navigationBarSetUp() {
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.view.backgroundColor = .clear
     }
     
     fileprivate func setUpScrollView() {
