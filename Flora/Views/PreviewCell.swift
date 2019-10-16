@@ -93,6 +93,18 @@ class PreviewCell: UICollectionViewCell {
         layer.cornerRadius = 15
         layer.masksToBounds = true
         clipsToBounds = true
+        
+        //Check if dark mode is enabled
+        if traitCollection.userInterfaceStyle == .dark {
+            layer.borderWidth = 1
+            layer.borderColor = UIColor.white.cgColor
+        } else {
+            layer.shadowColor = UIColor.black.cgColor
+            layer.shadowOpacity = 1
+            layer.shadowOffset = .zero
+            layer.shadowRadius = 10
+        }
+        
         cellSetup()
     }
     
