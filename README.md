@@ -1,8 +1,10 @@
 # Flora (iOS Application)
 
-Floar is an iOS app that provides information about the place relative to the user's current location.
+## Discontinued
 
-## Screenshots
+Flora is an iOS app that provides information about the place relative to the user's current location.
+
+### Screenshots
 <img align="left" src="Screenshots/screenshot-01.png" />
 <img align="center" src="Screenshots/screenshot-02" />
 
@@ -12,9 +14,9 @@ Floar is an iOS app that provides information about the place relative to the us
 
 ### About
 1. The app takes advantage of Wikipedia articles using [WikipediaKit](https://github.com/Raureif/WikipediaKit)
-2. The app uses Firebase as backend to store highlighted places
-3. Google Places API to reverse
+2. ~~The app uses Firebase as backend to store highlighted places~~
+3. ~~Google Places API to reverse~~
 
 To Do:
-1. Dynamic fetching of highlighted/featured places
-2. Optimise fetching of featured places
+1. Dynamic fetching of articles
+2. Optimise fetching of articles
