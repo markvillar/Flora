@@ -3,7 +3,12 @@
 Floar is an iOS app that provides information about the place relative to the user's current location.
 
 ## Screenshots
-To be posted soon
+<img align="left" src="Screenshots/screenshot-01.png" />
+<img align="center" src="Screenshots/screenshot-02" />
+
+<img align="left" src="Screenshots/screenshot-03.png" />
+<img align="center" src="Screenshots/screenshot-04.png" />
+
 
 ### About
 1. The app takes advantage of Wikipedia articles using [WikipediaKit](https://github.com/Raureif/WikipediaKit)
