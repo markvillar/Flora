@@ -34,7 +34,7 @@ class DetailedView: UIViewController {
         title.translatesAutoresizingMaskIntoConstraints = false
         //title.adjustsFontSizeToFitWidth = true
         title.textAlignment = .center
-        title.font = UIFont(name: "SanFranciscoText-Semibold", size: 30)
+        title.font = .systemFont(ofSize: 25, weight: .semibold)
         title.text = "No Article"
         title.backgroundColor = .systemBackground
         return title
