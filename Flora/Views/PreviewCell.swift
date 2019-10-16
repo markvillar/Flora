@@ -16,7 +16,6 @@ class PreviewCell: UICollectionViewCell {
     //MARK: - Property declarations
     
     let titleSize = 34 as CGFloat
-    let activityIndicatorState = true
     
     var articlePreview: WikipediaArticlePreview? {
         didSet {
@@ -44,14 +43,6 @@ class PreviewCell: UICollectionViewCell {
             
         }
     }
-    
-    let activityIndicator: UIActivityIndicatorView = {
-        let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.style = UIActivityIndicatorView.Style.large
-        return activityIndicator
-    }()
     
     let overlayView: UIView = {
         let overlay = UIView()
@@ -115,19 +106,6 @@ class PreviewCell: UICollectionViewCell {
     fileprivate func cellSetup() {
         imageBackgroundSetup()
         titleSetup()
-        showActivityIndicatorSetup()
-    }
-    
-}
-
-extension PreviewCell {
-    
-    override func prepareForReuse() {
-        if activityIndicatorState {
-            activityIndicator.startAnimating()
-        } else {
-            activityIndicator.stopAnimating()
-        }
     }
     
 }
@@ -167,14 +145,6 @@ extension PreviewCell {
         imageBackground.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         imageBackground.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         imageBackground.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-    }
-    
-    fileprivate func showActivityIndicatorSetup() {
-        contentView.addSubview(activityIndicator)
-        
-        activityIndicator.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        activityIndicator.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        activityIndicator.startAnimating()
     }
     
     fileprivate func overlayViewSetUp() {
