@@ -136,7 +136,7 @@ extension DetailedView {
         
         imageHeader.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         imageHeader.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        imageHeader.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        imageHeader.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         imageHeader.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.height/2).isActive = true
         
         setUpTitle()
@@ -148,7 +148,6 @@ extension DetailedView {
         articleTitle.topAnchor.constraint(equalTo: imageHeader.bottomAnchor).isActive = true
         articleTitle.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
         articleTitle.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        articleTitle.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
         articleTitle.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         setUpContent()
@@ -159,8 +158,6 @@ extension DetailedView {
         
         articleContent.topAnchor.constraint(equalTo: articleTitle.bottomAnchor).isActive = true
         articleContent.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        articleContent.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-        
         articleContent.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         
         webViewConstraints()
@@ -171,7 +168,7 @@ extension DetailedView {
         
         webView.topAnchor.constraint(equalTo: articleContent.bottomAnchor).isActive = true
         webView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        webView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        webView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         webView.heightAnchor.constraint(equalTo: scrollView.heightAnchor).isActive = true
         
         webView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
