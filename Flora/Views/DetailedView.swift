@@ -25,7 +25,7 @@ class DetailedView: UIViewController {
     let imageHeader: UIImageView = {
         let header = UIImageView()
         header.translatesAutoresizingMaskIntoConstraints = false
-        header.backgroundColor = .purple
+        header.backgroundColor = .systemBackground
         return header
     }()
     
