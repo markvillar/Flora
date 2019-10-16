@@ -6,7 +6,7 @@ Flora is an iOS app that provides information about the place relative to the us
 
 ### Screenshots
 <img align="left" src="Screenshots/screenshot-01.png" />
-<img align="center" src="Screenshots/screenshot-02" />
+<img align="center" src="Screenshots/screenshot-02.png" />
 
 <img align="left" src="Screenshots/screenshot-03.png" />
 <img align="center" src="Screenshots/screenshot-04.png" />
