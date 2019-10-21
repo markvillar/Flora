@@ -15,7 +15,9 @@ class FormattingDelegate: WikipediaTextFormattingDelegate {
     
     func format(context: WikipediaTextFormattingDelegateContext, rawText: String, title: String?, language: WikipediaLanguage, isHTML: Bool) -> String {
         
-        let formattedText = rawText.replacingOccurrences(of: "<[^>]+>", with: "", options: String.CompareOptions.regularExpression)
+        let formattedText = rawText
+        
+        //let formattedText = rawText.replacingOccurrences(of: "<[^>]+>", with: "", options: String.CompareOptions.regularExpression)
         
         return formattedText
     }

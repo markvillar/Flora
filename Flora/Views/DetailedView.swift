@@ -7,11 +7,22 @@
 //
 
 import UIKit
+import WebKit
 import WikipediaKit
 
-class DetailedView: UIViewController {
+class DetailedView: UIViewController, WKUIDelegate {
     
     //MARK: - Property declarations
+    
+    var webView: WKWebView = {
+        let webConfiguration = WKWebViewConfiguration()
+        let webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        webView.translatesAutoresizingMaskIntoConstraints = false
+//        let myURL = URL(string:"https://www.apple.com")
+//        let myRequest = URLRequest(url: myURL!)
+//        webView.load(myRequest)
+        return webView
+    }()
     
     var previewArticle: WikipediaArticlePreview
     
@@ -42,17 +53,6 @@ class DetailedView: UIViewController {
         return title
     }()
     
-    let articleContent: UILabel = {
-        let content = UILabel()
-        content.translatesAutoresizingMaskIntoConstraints = false
-        content.numberOfLines = 0
-        content.textAlignment = .natural
-        content.font = UIFont(name: "Helvetica", size: 20)
-        content.text = "No Content"
-        content.backgroundColor = .systemBackground
-        return content
-    }()
-    
     init(previewArticle: WikipediaArticlePreview) {
         
         self.previewArticle = previewArticle
@@ -78,10 +78,9 @@ class DetailedView: UIViewController {
 extension DetailedView {
     
     fileprivate func viewSetup() {
-        view.backgroundColor = .systemBackground
+        Wikipedia.sharedFormattingDelegate = FormattingDelegate.shared
         
         self.articleTitle.text = previewArticle.displayTitle
-        self.articleContent.text = previewArticle.displayText
         
         title = previewArticle.displayTitle
         
@@ -102,6 +101,11 @@ extension DetailedView {
         }
         
         navigationBarSetUp()
+        view.backgroundColor = .systemBackground
+        
+        getFullArticle(term: previewArticle.displayTitle) { [weak self] article in
+            self?.webView.loadHTMLString(article.displayText, baseURL: nil)
+        }
     }
     
     fileprivate func navigationBarSetUp() {
@@ -139,21 +143,36 @@ extension DetailedView {
         articleTitle.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         articleTitle.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        setUpContent()
+        webViewConstraints()
     }
     
-    fileprivate func setUpContent() {
-        scrollView.addSubview(articleContent)
+    fileprivate func webViewConstraints() {
+        scrollView.addSubview(webView)
         
-        articleContent.topAnchor.constraint(equalTo: articleTitle.bottomAnchor).isActive = true
-        articleContent.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        articleContent.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        articleContent.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        webView.topAnchor.constraint(equalTo: articleTitle.bottomAnchor).isActive = true
+        webView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        
+        webView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        webView.heightAnchor.constraint(equalTo: scrollView.heightAnchor).isActive = true
+        
+        webView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
     }
     
 }
 
 extension DetailedView {
+    
+    func getFullArticle(term: String, completion: @escaping (WikipediaArticle)->()) {
+        
+        let language = WikipediaLanguage("en")
+        let imageWidth = Int(self.view.frame.size.width * UIScreen.main.scale)
+
+        let _ = Wikipedia.shared.requestArticle(language: language, title: term, imageWidth: imageWidth) { article, error in
+            guard error == nil else { return }
+            guard let article = article else { return }
+            completion(article)
+        }
+    }
     
     func fetchImage(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
