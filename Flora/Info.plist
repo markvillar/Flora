@@ -25,6 +25,11 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<true/>
+	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Flora will notify you if you are within the vacinity of any tourist spot with hisstoric significance.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
