@@ -17,6 +17,7 @@ class HomeScreen: UIViewController {
     var locationManager = CLLocationManager()
     lazy var zoomLevel: Float = 13.0
     
+    let wikipedia = Wikipedia.shared
     let language = WikipediaLanguage("en")
     lazy var geocoder = CLGeocoder()
     
@@ -165,7 +166,7 @@ extension HomeScreen {
         
         let language = WikipediaLanguage("en")
         
-        let _ = Wikipedia.shared.requestNearbyResults(language: language, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, maxCount: 10, maxRadiusInMeters: 9000, imageWidth: 800, loadExtracts: true) { (articlePreviews, lnguage, error) in
+        let _ = wikipedia.requestNearbyResults(language: language, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, maxCount: 10, maxRadiusInMeters: 9000, imageWidth: 800, loadExtracts: true) { (articlePreviews, lnguage, error) in
             
             guard error == nil else { return }
             
