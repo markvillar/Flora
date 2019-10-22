@@ -110,7 +110,7 @@ extension DetailedView {
     
     fileprivate func navigationBarSetUp() {
         navigationController?.navigationBar.isTranslucent = true
-        navigationController?.view.backgroundColor = .clear
+        navigationController?.navigationBar.backgroundColor = .systemBackground
     }
     
     fileprivate func setUpScrollView() {
