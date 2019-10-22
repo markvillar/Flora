@@ -1,7 +1,5 @@
 # Flora (iOS Application)
 
-## Discontinued
-
 Flora is an iOS app that provides information about the place relative to the user's current location.
 
 ### About
@@ -9,9 +7,10 @@ Flora is an iOS app that provides information about the place relative to the us
 2. ~~The app uses Firebase as backend to store highlighted places~~
 3. ~~Google Places API to reverse~~
 
-To Do:
-1. Dynamic fetching of articles
-2. Optimise fetching of articles
+### To Do:
+1. ~~Dynamic fetching of articles~~
+2. ~~Optimise fetching of articles~~
+3. Format/Style the HTML returned by Wikipedia
 
 ### Screenshots
 <img align="left" src="Screenshots/screenshot-01.png" width="270" height="474" />
