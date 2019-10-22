@@ -38,7 +38,8 @@ class PreviewCell: UICollectionViewCell {
                 }
                 
             } else {
-                imageBackground.image = UIImage(named: "noimage")
+                imageBackground.image = nil
+                contentView.backgroundColor = .gray
             }
             
         }
