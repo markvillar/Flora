@@ -1,16 +1,25 @@
 PODS:
+  - Cards (1.4.0):
+    - Player (= 0.13.0)
+  - Player (0.13.0)
   - PromiseKit/CorePromise (6.10.0)
 
 DEPENDENCIES:
+  - Cards
   - PromiseKit/CorePromise (~> 6.8)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - PromiseKit
+  trunk:
+    - Cards
+    - Player
 
 SPEC CHECKSUMS:
+  Cards: 45ae6bd0eca7b5e8016d3b6cb30b60b04753f68f
+  Player: 968d8d07d923bcdd6f7e4091c9e306eb44a5f7a4
   PromiseKit: 1fdaeb6c0a94a5114fcb814ff3d772b86886ad4e
 
-PODFILE CHECKSUM: 24fdc1e5509d76aa7f9e8df96ef90c86b1ce16b9
+PODFILE CHECKSUM: 94229a6bdf3b303f1e54e20a2e8a474d873fe310
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4
