@@ -178,7 +178,7 @@ extension PreviewCell {
         article.trailingAnchor.constraint(equalTo: contentContainerView.trailingAnchor, constant: -18).isActive = true
         article.bottomAnchor.constraint(equalTo: contentContainerView.bottomAnchor, constant: -18).isActive = true
         article.lineBreakMode = .byTruncatingTail
-        article.textAlignment = .justified
+        article.textAlignment = .natural
     }
     
     
