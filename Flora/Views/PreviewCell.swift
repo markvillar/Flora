@@ -69,7 +69,7 @@ class PreviewCell: UICollectionViewCell {
         title.translatesAutoresizingMaskIntoConstraints = false
         title.adjustsFontSizeToFitWidth = true
         title.textColor = .white
-        title.numberOfLines = 0
+        title.numberOfLines = 2
         title.text = "No label"
         return title
     }()
