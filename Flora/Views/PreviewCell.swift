@@ -72,6 +72,7 @@ class PreviewCell: UICollectionViewCell {
         let article = UILabel()
         article.translatesAutoresizingMaskIntoConstraints = false
         article.text = "No Article"
+        article.font = UIFont(name: "SFUIText", size: 15)
         article.textColor = .white
         article.numberOfLines = 0
         return article
