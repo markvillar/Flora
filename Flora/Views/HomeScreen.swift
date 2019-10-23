@@ -87,6 +87,7 @@ extension HomeScreen {
     fileprivate func viewSetup() {
         navigationItem.title = "Home Tab"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.backgroundColor = .systemBackground
         view.backgroundColor = .systemBackground
     }
     

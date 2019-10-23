@@ -11,6 +11,8 @@ import WikipediaKit
 
 let language = WikipediaLanguage("en")
 
+let cornerRadius:CGFloat = 15
+
 class PreviewCell: UICollectionViewCell {
     
     //MARK: - Property declarations
@@ -38,15 +40,27 @@ class PreviewCell: UICollectionViewCell {
                 }
                 
             } else {
-                imageBackground.image = UIImage(named: "noimage")
+                imageBackground.image = nil
+                
             }
             
         }
     }
     
+    let contentContainerView: UIView = {
+        let content = UIView()
+        content.layer.cornerRadius = cornerRadius
+        //content.layer.masksToBounds = true
+        content.clipsToBounds = true
+        content.translatesAutoresizingMaskIntoConstraints = false
+        return content
+    }()
+    
     let overlayView: UIView = {
         let overlay = UIView()
         overlay.translatesAutoresizingMaskIntoConstraints = false
+        overlay.backgroundColor = .black
+        overlay.alpha = 0.4
         return overlay
     }()
     
@@ -55,7 +69,7 @@ class PreviewCell: UICollectionViewCell {
         title.translatesAutoresizingMaskIntoConstraints = false
         title.adjustsFontSizeToFitWidth = true
         title.textColor = .white
-        title.numberOfLines = 0
+        title.numberOfLines = 2
         title.text = "No label"
         return title
     }()
@@ -71,6 +85,7 @@ class PreviewCell: UICollectionViewCell {
         let article = UILabel()
         article.translatesAutoresizingMaskIntoConstraints = false
         article.text = "No Article"
+        article.font = UIFont(name: "SFUIText", size: 15)
         article.textColor = .white
         article.numberOfLines = 0
         return article
@@ -81,9 +96,7 @@ class PreviewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        layer.cornerRadius = 15
-        layer.masksToBounds = true
-        clipsToBounds = true
+        layer.cornerRadius = cornerRadius
         
         //Check if dark mode is enabled
         if traitCollection.userInterfaceStyle == .dark {
@@ -91,9 +104,9 @@ class PreviewCell: UICollectionViewCell {
             layer.borderColor = UIColor.white.cgColor
         } else {
             layer.shadowColor = UIColor.black.cgColor
-            layer.shadowOpacity = 1
+            layer.shadowOpacity = 0.4
             layer.shadowOffset = .zero
-            layer.shadowRadius = 10
+            layer.shadowRadius = 8
         }
         
         cellSetup()
@@ -104,8 +117,11 @@ class PreviewCell: UICollectionViewCell {
     }
     
     fileprivate func cellSetup() {
+        setupContentContainerView()
+        overlayViewSetUp()
         imageBackgroundSetup()
         titleSetup()
+        articleSetup()
     }
     
 }
@@ -114,46 +130,55 @@ extension PreviewCell {
     
     //MARK: - PreviewCell Constraints
     
-    fileprivate func titleSetup() {
-        contentView.addSubview(title)
-        title.font = UIFont(name: "Avenir Next", size: titleSize)
-        title.font = UIFont.boldSystemFont(ofSize: titleSize)
+    fileprivate func setupContentContainerView() {
+        contentView.addSubview(contentContainerView)
         
-        title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: contentView.bounds.height/2 - 25).isActive = true
-        title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 18).isActive = true
-        title.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -18).isActive = true
-        title.widthAnchor.constraint(equalToConstant: contentView.bounds.width).isActive = true
-        
-        articleSetup()
-    }
-    
-    fileprivate func articleSetup() {
-        contentView.addSubview(article)
-        
-        article.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 8).isActive = true
-        article.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 18).isActive = true
-        article.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -18).isActive = true
-        article.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -18).isActive = true
-        article.lineBreakMode = .byTruncatingTail
-        article.textAlignment = .justified
-    }
-    
-    fileprivate func imageBackgroundSetup() {
-        contentView.addSubview(imageBackground)
-        
-        imageBackground.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        imageBackground.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        imageBackground.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        imageBackground.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            contentContainerView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            contentContainerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            contentContainerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            contentContainerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
     
     fileprivate func overlayViewSetUp() {
-        contentView.addSubview(overlayView)
+        contentContainerView.addSubview(overlayView)
         
-        overlayView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        overlayView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        overlayView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        overlayView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        overlayView.topAnchor.constraint(equalTo: contentContainerView.topAnchor).isActive = true
+        overlayView.leadingAnchor.constraint(equalTo: contentContainerView.leadingAnchor).isActive = true
+        overlayView.trailingAnchor.constraint(equalTo: contentContainerView.trailingAnchor).isActive = true
+        overlayView.bottomAnchor.constraint(equalTo: contentContainerView.bottomAnchor).isActive = true
+    }
+    
+    fileprivate func imageBackgroundSetup() {
+        contentContainerView.insertSubview(imageBackground, belowSubview: overlayView)
+        
+        imageBackground.topAnchor.constraint(equalTo: contentContainerView.topAnchor).isActive = true
+        imageBackground.leadingAnchor.constraint(equalTo: contentContainerView.leadingAnchor).isActive = true
+        imageBackground.trailingAnchor.constraint(equalTo: contentContainerView.trailingAnchor).isActive = true
+        imageBackground.bottomAnchor.constraint(equalTo: contentContainerView.bottomAnchor).isActive = true
+    }
+    
+    fileprivate func titleSetup() {
+        contentContainerView.addSubview(title)
+        title.font = UIFont(name: "Avenir Next", size: titleSize)
+        title.font = UIFont.boldSystemFont(ofSize: titleSize)
+        
+        title.topAnchor.constraint(equalTo: contentContainerView.topAnchor, constant: contentView.bounds.height/2 - 25).isActive = true
+        title.leadingAnchor.constraint(equalTo: contentContainerView.leadingAnchor, constant: 18).isActive = true
+        title.trailingAnchor.constraint(equalTo: contentContainerView.trailingAnchor, constant: -18).isActive = true
+        title.widthAnchor.constraint(equalToConstant: contentContainerView.bounds.width).isActive = true
+    }
+    
+    fileprivate func articleSetup() {
+        contentContainerView.addSubview(article)
+        
+        article.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 8).isActive = true
+        article.leadingAnchor.constraint(equalTo: contentContainerView.leadingAnchor, constant: 18).isActive = true
+        article.trailingAnchor.constraint(equalTo: contentContainerView.trailingAnchor, constant: -18).isActive = true
+        article.bottomAnchor.constraint(lessThanOrEqualTo: contentContainerView.bottomAnchor, constant: -18).isActive = true
+        article.lineBreakMode = .byTruncatingTail
+        article.textAlignment = .natural
     }
     
     
