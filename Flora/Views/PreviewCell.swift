@@ -164,7 +164,7 @@ extension PreviewCell {
         title.font = UIFont(name: "Avenir Next", size: titleSize)
         title.font = UIFont.boldSystemFont(ofSize: titleSize)
         
-        title.topAnchor.constraint(equalTo: contentContainerView.topAnchor, constant: contentView.bounds.height/2 - 25).isActive = true
+        title.topAnchor.constraint(equalTo: contentContainerView.topAnchor, constant: contentView.bounds.height/2).isActive = true
         title.leadingAnchor.constraint(equalTo: contentContainerView.leadingAnchor, constant: 18).isActive = true
         title.trailingAnchor.constraint(equalTo: contentContainerView.trailingAnchor, constant: -18).isActive = true
         title.widthAnchor.constraint(equalToConstant: contentContainerView.bounds.width).isActive = true
