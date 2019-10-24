@@ -152,7 +152,24 @@ extension About {
     }
     
     @objc func twitterButtonHandle() {
-        print("Twitter button is pressed")
+        let screenName =  "themarkvillar"
+        let appURL = URL(string: "twitter://user?screen_name=\(screenName)")!
+        let webURL = URL(string: "https://twitter.com/\(screenName)")!
+
+        if UIApplication.shared.canOpenURL(appURL as URL) {
+            if #available(iOS 12.0, *) {
+                UIApplication.shared.open(appURL)
+            } else {
+                UIApplication.shared.openURL(appURL)
+            }
+        } else {
+            //redirect to safari because the user doesn't have twitter
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(webURL)
+            } else {
+                UIApplication.shared.openURL(webURL)
+            }
+        }
     }
     
     @objc func githubButtonHandle() {
