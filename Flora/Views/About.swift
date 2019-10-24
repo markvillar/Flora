@@ -198,7 +198,14 @@ extension About {
     }
     
     @objc func emailButtonHandle() {
-        print("Email button is pressed")
+        let mailURL = URL(string: "mailto:themarkvillar@gmail.com")!
+
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(mailURL as URL, options: [:], completionHandler: nil)
+        }
+        else {
+            UIApplication.shared.openURL(mailURL as URL)
+        }
     }
     
 }
