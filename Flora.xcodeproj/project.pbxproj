@@ -23,6 +23,7 @@
 		4D656C0D22917CA00071C070 /* FormattingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D656C0C22917CA00071C070 /* FormattingDelegate.swift */; };
 		4D69EDDC21A23321008FD88C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D69EDDB21A23321008FD88C /* Alert.swift */; };
 		4DB209492259419800195862 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB209482259419800195862 /* Marker.swift */; };
+		4DB2FD682361F51D00EC34C0 /* StackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB2FD672361F51D00EC34C0 /* StackView+Extension.swift */; };
 		4DD3B9E123487AB900EE6A66 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3B9E023487AB900EE6A66 /* About.swift */; };
 		4DD5A92D2354E92A00159F37 /* DetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD5A92C2354E92A00159F37 /* DetailedView.swift */; };
 		EA958247E9DDEC316507A2C7 /* Pods_Flora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2850AF6AB644B0BAC771CC /* Pods_Flora.framework */; };
@@ -105,6 +106,7 @@
 		4D656C0C22917CA00071C070 /* FormattingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattingDelegate.swift; sourceTree = "<group>"; };
 		4D69EDDB21A23321008FD88C /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		4DB209482259419800195862 /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
+		4DB2FD672361F51D00EC34C0 /* StackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView+Extension.swift"; sourceTree = "<group>"; };
 		4DD3B9E023487AB900EE6A66 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		4DD5A92C2354E92A00159F37 /* DetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedView.swift; sourceTree = "<group>"; };
 		CCDE2D6BEC264162882709DA /* Pods-Flora.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flora.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flora/Pods-Flora.debug.xcconfig"; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				4D09984523619FF700FF30BC /* String+Extension.swift */,
+				4DB2FD672361F51D00EC34C0 /* StackView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				4D15BDE12347F5E500827BAB /* HomeScreen.swift in Sources */,
 				4D656C0D22917CA00071C070 /* FormattingDelegate.swift in Sources */,
 				4D55476722A461450063676E /* Place.swift in Sources */,
+				4DB2FD682361F51D00EC34C0 /* StackView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
