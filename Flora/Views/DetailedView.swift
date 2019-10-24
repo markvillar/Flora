@@ -14,14 +14,11 @@ class DetailedView: UIViewController, WKUIDelegate {
     
     //MARK: - Property declarations
     
-    var webView: WKWebView = {
-        let webConfiguration = WKWebViewConfiguration()
-        let webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        webView.translatesAutoresizingMaskIntoConstraints = false
-//        let myURL = URL(string:"https://www.apple.com")
-//        let myRequest = URLRequest(url: myURL!)
-//        webView.load(myRequest)
-        return webView
+    let articleText: UITextView = {
+        let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.isScrollEnabled = false
+        return textView
     }()
     
     var previewArticle: WikipediaArticlePreview
@@ -104,7 +101,7 @@ extension DetailedView {
         view.backgroundColor = .systemBackground
         
         getFullArticle(term: previewArticle.displayTitle) { [weak self] article in
-            self?.webView.loadHTMLString(article.displayText, baseURL: nil)
+            self?.articleText.attributedText = article.displayText.html2Attributed
         }
     }
     
@@ -147,15 +144,13 @@ extension DetailedView {
     }
     
     fileprivate func webViewConstraints() {
-        scrollView.addSubview(webView)
+        scrollView.addSubview(articleText)
         
-        webView.topAnchor.constraint(equalTo: articleTitle.bottomAnchor).isActive = true
-        webView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        articleText.topAnchor.constraint(equalTo: articleTitle.bottomAnchor).isActive = true
+        articleText.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        articleText.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         
-        webView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        webView.heightAnchor.constraint(equalTo: scrollView.heightAnchor).isActive = true
-        
-        webView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        articleText.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
     }
     
 }
