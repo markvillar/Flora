@@ -100,8 +100,13 @@ class PreviewCell: UICollectionViewCell {
         
         //Check if dark mode is enabled
         if traitCollection.userInterfaceStyle == .dark {
-            layer.borderWidth = 1
+            layer.borderWidth = 0.3
             layer.borderColor = UIColor.white.cgColor
+            
+            layer.shadowColor = UIColor.white.cgColor
+            layer.shadowOpacity = 0.3
+            layer.shadowOffset = CGSize(width: 3, height: 3)
+            layer.shadowRadius = 8
         } else {
             layer.shadowColor = UIColor.black.cgColor
             layer.shadowOpacity = 0.4
