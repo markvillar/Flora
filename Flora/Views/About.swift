@@ -135,11 +135,8 @@ extension About {
         profileImage.widthAnchor.constraint(equalToConstant: profileImageSize).isActive = true
         profileImage.heightAnchor.constraint(equalToConstant: profileImageSize).isActive = true
         
-        //Check if dark mode is enabled
-        if traitCollection.userInterfaceStyle == .dark {
-            profileImage.layer.borderWidth = 1
-            profileImage.layer.borderColor = UIColor.white.cgColor
-        } else {
+        //Check if light mode is enabled
+        if traitCollection.userInterfaceStyle == .light {
             profileImage.layer.shadowColor = UIColor.black.cgColor
             profileImage.layer.shadowOpacity = 0.4
             profileImage.layer.shadowOffset = .zero
