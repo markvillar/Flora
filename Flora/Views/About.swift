@@ -185,7 +185,12 @@ extension About {
     @objc func githubButtonHandle() {
         let githubURL = URL(string: "https://github.com/markvillar")!
         
-        UIApplication.shared.open(githubURL, options: [:], completionHandler: nil)
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(githubURL, options: [:], completionHandler: nil)
+        }
+        else {
+            UIApplication.shared.openURL(githubURL as URL)
+        }
     }
     
     @objc func linkedinButtonHandle() {
