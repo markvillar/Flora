@@ -76,18 +76,6 @@ class About: UIViewController {
         return githubButton
     }()
     
-    let linkedinButton: UIButton = {
-        let linkedinButton = UIButton()
-        let linkedinIcon = UIImage(named: "linkedin")
-        linkedinButton.setImage(linkedinIcon, for: .normal)
-        linkedinButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        linkedinButton.heightAnchor.constraint(equalTo: linkedinButton.widthAnchor, multiplier: 1).isActive = true
-        linkedinButton.contentHorizontalAlignment = .fill
-        linkedinButton.contentVerticalAlignment = .fill
-        linkedinButton.addTarget(self, action: #selector(linkedinButtonHandle), for: .touchUpInside)
-        return linkedinButton
-    }()
-    
     let emailButton: UIButton = {
         let emailButton = UIButton()
         let emailIcon = UIImage(named: "email")
@@ -158,7 +146,7 @@ extension About {
         socialStackView.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 8).isActive = true
         socialStackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
-        socialStackView.addArrangedSubviews(twitterButton, githubButton, emailButton, linkedinButton)
+        socialStackView.addArrangedSubviews(twitterButton, githubButton, emailButton)
     }
     
     @objc func twitterButtonHandle() {
@@ -190,17 +178,6 @@ extension About {
         }
         else {
             UIApplication.shared.openURL(githubURL as URL)
-        }
-    }
-    
-    @objc func linkedinButtonHandle() {
-        let linkedinURL = URL(string: "linkedin://profile/markvillar")
-        let linkedinWebURL = URL(string: "https://www.linkedin.com/in/markvillar/")
-        
-        if UIApplication.shared.canOpenURL(linkedinURL! as URL) {
-            UIApplication.shared.open(linkedinURL!, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.open(linkedinWebURL!, options: [:], completionHandler: nil)
         }
     }
     
