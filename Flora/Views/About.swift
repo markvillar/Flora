@@ -153,7 +153,7 @@ extension About {
         let screenName =  "themarkvillar"
         let appURL = URL(string: "twitter://user?screen_name=\(screenName)")!
         let webURL = URL(string: "https://twitter.com/\(screenName)")!
-
+        
         if UIApplication.shared.canOpenURL(appURL as URL) {
             if #available(iOS 12.0, *) {
                 UIApplication.shared.open(appURL)
@@ -183,7 +183,7 @@ extension About {
     
     @objc func emailButtonHandle() {
         let mailURL = URL(string: "mailto:themarkvillar@gmail.com")!
-
+        
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(mailURL as URL, options: [:], completionHandler: nil)
         }
