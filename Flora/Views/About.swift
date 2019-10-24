@@ -12,7 +12,7 @@ class About: UIViewController {
     
     //MARK: - Property declarations
     
-    let profileImageSize = UIScreen.main.bounds.width - 100
+    let profileImageSize = UIScreen.main.bounds.width - 170
     
     let scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -24,7 +24,9 @@ class About: UIViewController {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "profile")
+        image.layer.shadowRadius = 8
         image.contentMode = .scaleAspectFit
+        
         return image
     }()
     
@@ -132,6 +134,17 @@ extension About {
         profileImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         profileImage.widthAnchor.constraint(equalToConstant: profileImageSize).isActive = true
         profileImage.heightAnchor.constraint(equalToConstant: profileImageSize).isActive = true
+        
+        //Check if dark mode is enabled
+        if traitCollection.userInterfaceStyle == .dark {
+            profileImage.layer.borderWidth = 1
+            profileImage.layer.borderColor = UIColor.white.cgColor
+        } else {
+            profileImage.layer.shadowColor = UIColor.black.cgColor
+            profileImage.layer.shadowOpacity = 0.4
+            profileImage.layer.shadowOffset = .zero
+            profileImage.layer.shadowRadius = 8
+        }
     }
     
     fileprivate func setupName() {
