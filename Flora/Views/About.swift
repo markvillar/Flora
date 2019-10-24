@@ -194,7 +194,14 @@ extension About {
     }
     
     @objc func linkedinButtonHandle() {
-        print("LinkedIn button is pressed")
+        let linkedinURL = URL(string: "linkedin://profile/markvillar")
+        let linkedinWebURL = URL(string: "https://www.linkedin.com/in/markvillar/")
+        
+        if UIApplication.shared.canOpenURL(linkedinURL! as URL) {
+            UIApplication.shared.open(linkedinURL!, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.open(linkedinWebURL!, options: [:], completionHandler: nil)
+        }
     }
     
     @objc func emailButtonHandle() {
