@@ -173,7 +173,9 @@ extension About {
     }
     
     @objc func githubButtonHandle() {
-        print("GitHub button is pressed")
+        let githubURL = URL(string: "https://github.com/markvillar")!
+        
+        UIApplication.shared.open(githubURL, options: [:], completionHandler: nil)
     }
     
     @objc func linkedinButtonHandle() {
