@@ -146,7 +146,7 @@ extension About {
         socialStackView.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 8).isActive = true
         socialStackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
-        socialStackView.addArrangedSubviews(twitterButton, githubButton, emailButton)
+        socialStackView.addArrangedSubviews(twitterButton, emailButton, githubButton)
     }
     
     @objc func twitterButtonHandle() {
