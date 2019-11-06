@@ -18,6 +18,7 @@ class DetailedView: UIViewController, WKUIDelegate {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.isScrollEnabled = false
+        textView.isEditable = false
         return textView
     }()
     
