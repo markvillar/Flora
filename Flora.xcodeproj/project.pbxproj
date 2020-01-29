@@ -157,9 +157,10 @@
 		4D058DF62173D0070060D78D /* Flora */ = {
 			isa = PBXGroup;
 			children = (
-				4D0729B12354610F00CF1D72 /* Reusables */,
-				4D15BDD92347F4E300827BAB /* Views */,
 				4DEF3C4821FA2D9400EF8F9E /* Model */,
+				4D15BDD92347F4E300827BAB /* Controller */,
+				4DC1D2D623A77DB500E87EEB /* View */,
+				4D0729B12354610F00CF1D72 /* Reusables */,
 				4D69EDD921A232BA008FD88C /* Utilities */,
 				4D09984023619FD600FF30BC /* Extensions */,
 				4D058DFE2173D0090060D78D /* Assets.xcassets */,
@@ -187,7 +188,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		4D15BDD92347F4E300827BAB /* Views */ = {
+		4D15BDD92347F4E300827BAB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				4D15BDDE2347F50800827BAB /* TabBarController.swift */,
@@ -198,7 +199,7 @@
 				4D2CE5CC23508BA8007454B2 /* PreviewCell.swift */,
 				4DD5A92C2354E92A00159F37 /* DetailedView.swift */,
 			);
-			path = Views;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		4D5E17142219CABA00B21512 /* Products */ = {
@@ -220,6 +221,13 @@
 				4D656C0C22917CA00071C070 /* FormattingDelegate.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		4DC1D2D623A77DB500E87EEB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		4DEF3C4821FA2D9400EF8F9E /* Model */ = {
