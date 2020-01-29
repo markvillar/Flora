@@ -1,6 +1,8 @@
 # Flora
 
-## Status: Under development
+## Status: Archived
+
+**Update:** [Official Wikipedia](https://github.com/wikimedia/wikipedia-ios) app now supports location based articles.
 
 Flora is an iOS app that provides information about the place relative to the user's current location.
 
