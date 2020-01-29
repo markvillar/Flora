@@ -7,6 +7,5 @@ target 'Flora' do
 
   # Pods for Flora
   pod "PromiseKit/CorePromise", "~> 6.8"
-  pod 'Cards'
 
 end
